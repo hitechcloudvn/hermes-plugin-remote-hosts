@@ -1,3 +1,8 @@
+"""Công cụ SSH tường minh cho các bí danh máy chủ từ xa đã cấu hình của Hermes Agent.
+
+Explicit SSH tools for configured remote host aliases in Hermes Agent.
+"""
+
 from __future__ import annotations
 
 import json
@@ -417,6 +422,10 @@ def _require_file_access_constrained(host: HostConfig, tool_name: str) -> None:
 
 
 def remote_hosts_list(args: dict[str, Any], **_: Any) -> str:
+    """Liệt kê bí danh máy chủ từ xa đã bật, không lộ identity_file hay tuỳ chọn SSH thô.
+
+    List enabled remote host aliases without exposing identity_file or raw SSH options.
+    """
     try:
         hosts = _load_hosts()
     except Exception as exc:
@@ -461,6 +470,10 @@ def _check_command_allowed(command: str, host: HostConfig) -> dict[str, Any]:
 
 
 def remote_terminal(args: dict[str, Any], **_: Any) -> str:
+    """Chạy một lệnh shell tiền cảnh trên bí danh máy chủ từ xa qua SSH.
+
+    Run a foreground shell command on a configured remote host alias over SSH.
+    """
     try:
         host = _host_from_args(args)
         command = args.get("command")
@@ -533,6 +546,10 @@ def remote_terminal(args: dict[str, Any], **_: Any) -> str:
 
 
 def remote_read_file(args: dict[str, Any], **_: Any) -> str:
+    """Đọc tệp văn bản từ xa có phân trang theo dòng; cần allow_read và allowed_roots/workdir_only.
+
+    Read a remote text file with line pagination; requires allow_read and allowed_roots/workdir_only.
+    """
     try:
         host = _host_from_args(args)
         if not host.allow_read:
@@ -570,6 +587,10 @@ def remote_read_file(args: dict[str, Any], **_: Any) -> str:
 
 
 def remote_write_file(args: dict[str, Any], **_: Any) -> str:
+    """Ghi đè nguyên tử tệp văn bản từ xa; cần allow_write và allowed_roots/workdir_only.
+
+    Atomically overwrite a remote text file; requires allow_write and allowed_roots/workdir_only.
+    """
     try:
         host = _host_from_args(args)
         if not host.allow_write:
@@ -610,6 +631,10 @@ def remote_write_file(args: dict[str, Any], **_: Any) -> str:
 
 
 def register(ctx) -> None:
+    """Đăng ký bốn công cụ remote-hosts với ngữ cảnh plugin.
+
+    Register the four remote-hosts tools with the plugin context.
+    """
     ctx.register_tool(
         name="remote_hosts_list",
         toolset="remote-hosts",

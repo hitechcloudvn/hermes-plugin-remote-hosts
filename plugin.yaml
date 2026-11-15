@@ -1,6 +1,7 @@
 name: remote-hosts
 version: "0.1.0"
-description: Explicit SSH tools for configured remote host aliases.
+description: "Explicit SSH tools for configured remote host aliases / Công cụ SSH tường minh cho các bí danh máy chủ từ xa đã cấu hình"
+author: "Nguyễn Thanh An <thanhan92f1@gmail.com> (HiTechCloud.VN)"
 kind: standalone
 provides_tools:
   - remote_hosts_list

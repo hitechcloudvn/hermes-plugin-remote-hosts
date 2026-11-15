@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-plugin-remote-hosts"
+version = "0.1.0"
+description = "Hermes Agent plugin: explicit SSH tools for configured remote host aliases / Plugin Hermes Agent: công cụ SSH tường minh cho các bí danh máy chủ từ xa đã cấu hình"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Nguyễn Thanh An", email = "thanhan92f1@gmail.com" },
+]
+keywords = ["hermes", "hermes-agent", "plugin", "ssh", "remote-hosts"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Systems Administration",
+]
+
+[project.urls]
+Homepage = "https://github.com/hitechcloudvn/hermes-plugin-remote-hosts"
+Repository = "https://github.com/hitechcloudvn/hermes-plugin-remote-hosts"
+Issues = "https://github.com/hitechcloudvn/hermes-plugin-remote-hosts/issues"
+Releases = "https://github.com/hitechcloudvn/hermes-plugin-remote-hosts/releases"
+GitLab = "https://gitlab.com/hitechcloudvn/hermes-plugin-remote-hosts"
+
+[tool.setuptools]
+packages = ["hermes_plugin_remote_hosts"]
+package-dir = { "hermes_plugin_remote_hosts" = "." }
